@@ -143,7 +143,7 @@ const RenderPost = ({ post, redirect, preview }) => {
         post.cover.blockId
       }`
     : undefined
-  const ogImage = coverURL ? `https'//${homeURL}/${coverURL}` : undefined
+  const ogImage = coverURL ? `https://${homeURL}/${coverURL}` : undefined
 
   return (
     <>

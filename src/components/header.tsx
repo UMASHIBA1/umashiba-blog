@@ -3,6 +3,7 @@ import Head from 'next/head'
 import ExtLink from './ext-link'
 import { useRouter } from 'next/router'
 import styles from '../styles/header.module.css'
+import { homeURL } from '../constants/domains'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
@@ -11,7 +12,7 @@ const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Source Code', link: 'https://github.com/UMASHIBA1/umashiba-blog' },
 ]
 
-const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
+const ogImageUrl = `https://${homeURL}/og-image.png`
 
 export default ({ titlePre = '', ogImage = ogImageUrl }) => {
   const { pathname } = useRouter()
