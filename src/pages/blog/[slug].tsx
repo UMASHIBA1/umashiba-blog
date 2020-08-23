@@ -137,18 +137,9 @@ const RenderPost = ({ post, redirect, preview }) => {
     )
   }
 
-  const coverURL = post.cover
-    ? `image/${encodeURIComponent(post.cover.url)}&blockId=${
-        post.cover.blockId
-      }`
-    : undefined
-
-  const baseURL = 'www.notion.so'
-  const ogImage = coverURL ? `https://${baseURL}/${coverURL}` : undefined
-
   return (
     <>
-      <Header titlePre={post.Page} ogImage={ogImage} />
+      <Header titlePre={post.Page} />
       {preview && (
         <div className={blogStyles.previewAlertContainer}>
           <div className={blogStyles.previewAlert}>
