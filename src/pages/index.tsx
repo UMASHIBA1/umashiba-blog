@@ -15,7 +15,7 @@ export default () => (
         width="250"
         alt="Vercel + Notion"
       />
-      <h1>My Notion Blog</h1>
+      <h1>UMASHIBA Notion</h1>
       <h2>
         Blazing Fast Notion Blog with Next.js'{' '}
         <ExtLink
@@ -27,11 +27,17 @@ export default () => (
         </ExtLink>
       </h2>
 
-      <Features />
-
       <div className="explanation">
         <p>
-          This is a statically generated{' '}
+          これはUMASHIBAのNotionの一部を公開しているNotion blogです。
+          <ExtLink href="https://github.com/ijjk/notion-blog">こちら</ExtLink>
+          のリポジトリをフォークさせてもらったものを改造してつくりました。
+          改造したコードは
+          <ExtLink href="https://github.com/UMASHIBA1/umashiba-blog">
+            ここ
+          </ExtLink>
+          です。
+          {/* This is a statically generated{' '}
           <ExtLink href="https://nextjs.org">Next.js</ExtLink> site with a{' '}
           <ExtLink href="https://notion.so">Notion</ExtLink> powered blog that
           is deployed with <ExtLink href="https://vercel.com">Vercel</ExtLink>.
@@ -59,7 +65,7 @@ export default () => (
           for finding the new page's id. To get your token from Notion, login
           and look for a cookie under www.notion.so with the name `token_v2`.
           After finding your token and your blog's page id you should be good to
-          go!
+          go! */}
         </p>
       </div>
     </div>
