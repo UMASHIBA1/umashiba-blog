@@ -3,6 +3,7 @@ import Head from 'next/head'
 import ExtLink from './ext-link'
 import { useRouter } from 'next/router'
 import styles from '../styles/header.module.css'
+import { homeURL } from '../constants/domains'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
@@ -11,24 +12,24 @@ const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Source Code', link: 'https://github.com/UMASHIBA1/umashiba-blog' },
 ]
 
-const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
+const ogImageUrl = `https://${homeURL}/og-image.png`
 
-export default ({ titlePre = '' }) => {
+export default ({ titlePre = '', ogImage = ogImageUrl }) => {
   const { pathname } = useRouter()
 
   return (
     <header className={styles.header}>
       <Head>
-        <title>{titlePre ? `${titlePre} |` : ''} My Notion Blog</title>
+        <title>{titlePre ? `${titlePre} |` : ''} UMASHIBA Notion</title>
+        <meta name="description" content="this is UMASHIBA Notion blog" />
         <meta
-          name="description"
-          content="An example Next.js site using Notion for the blog"
+          name="og:title"
+          content={`${titlePre ? `${titlePre} |` : ''}UMASHIBA Notion`}
         />
-        <meta name="og:title" content="My Notion Blog" />
-        <meta property="og:image" content={ogImageUrl} />
-        <meta name="twitter:site" content="@_ijjk" />
+        <meta property="og:image" content={ogImage} />
+        <meta name="twitter:site" content="@UMASHIBA" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image" content={ogImage} />
       </Head>
       <ul>
         {navItems.map(({ label, page, link }) => (
