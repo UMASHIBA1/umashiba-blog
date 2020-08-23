@@ -138,16 +138,9 @@ const RenderPost = ({ post, redirect, preview }) => {
     )
   }
 
-  const coverURL = post.cover
-    ? `/api/asset?assetUrl=${encodeURIComponent(post.cover.url)}&blockId=${
-        post.cover.blockId
-      }`
-    : undefined
-  const ogImage = coverURL ? `https'//${homeURL}/${coverURL}` : undefined
-
   return (
     <>
-      <Header titlePre={post.Page} ogImage={ogImage} />
+      <Header titlePre={post.Page} />
       {preview && (
         <div className={blogStyles.previewAlertContainer}>
           <div className={blogStyles.previewAlert}>
