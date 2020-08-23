@@ -12,6 +12,7 @@ import React, { CSSProperties, useEffect } from 'react'
 import getBlogIndex from '../../lib/notion/getBlogIndex'
 import getNotionUsers from '../../lib/notion/getNotionUsers'
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
+import { homeURL } from '../../constants/domains'
 
 // Get the data for each blog post
 export async function getStaticProps({ params: { slug }, preview }) {
@@ -33,6 +34,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
   }
   const postData = await getPageData(post.id)
   post.content = postData.blocks
+  post.cover = postData.coverImg
 
   for (let i = 0; i < postData.blocks.length; i++) {
     const { value } = postData.blocks[i]
@@ -136,9 +138,16 @@ const RenderPost = ({ post, redirect, preview }) => {
     )
   }
 
+  const coverURL = post.cover
+    ? `/api/asset?assetUrl=${encodeURIComponent(post.cover.url)}&blockId=${
+        post.cover.blockId
+      }`
+    : undefined
+  const ogImage = coverURL ? `https'//${homeURL}/${coverURL}` : undefined
+
   return (
     <>
-      <Header titlePre={post.Page} />
+      <Header titlePre={post.Page} ogImage={ogImage} />
       {preview && (
         <div className={blogStyles.previewAlertContainer}>
           <div className={blogStyles.previewAlert}>
