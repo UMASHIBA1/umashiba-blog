@@ -24,7 +24,7 @@ export default ({ titlePre = '', ogImage = ogImageUrl }) => {
         <meta name="description" content="this is UMASHIBA Notion blog" />
         <meta
           name="og:title"
-          content={`${titlePre ? `${titlePre} |` : ''}UMASHIBA Notion`}
+          content={`${titlePre ? `${titlePre} | ` : ''}UMASHIBA Notion`}
         />
         <meta property="og:image" content={ogImage} />
         <meta name="twitter:site" content="@UMASHIBA" />
